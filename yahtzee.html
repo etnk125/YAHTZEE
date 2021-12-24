@@ -1,212 +1,424 @@
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YAHTZEE</title>
-    <link rel="icon" href="https://www.pngkey.com/png/full/417-4178249_casino-dice-dice.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style-popup.css">
-    <script src='script.js'></script>
-</head>
+    <link
+      rel="icon"
+      href="https://www.pngkey.com/png/full/417-4178249_casino-dice-dice.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-popup.css" />
+    <script src="script.js"></script>
+  </head>
 
-<body onload='newGame()'>
+  <body onload="newGame()">
     <div class="box">
-        <a href="#popup1">How To Play</a>
+      <a href="#popup1">How To Play</a>
     </div>
 
-
-    <h1>YAHTZEE</h1>
-
     <center>
-        <table id="score-sheet">
-            <tr>
-                <th class="th1" colspan="4">SCORE SHEET</th>
-            </tr>
-            <tr>
-                <th class='th2' id="aces">Aces</th>
-                <td><input type='button' class='score' name='upperScoring' id='acesDisplay' value='0' onclick='recordTurn(0)'></td>
-                <th class='th2' id="triple">3 of a kind</th>
-                <td><input type='button' class='score' name='lowerScoring' id='tripleDisplay' value='0' onclick='recordTurn(6)'></td>
-            </tr>
-            <tr>
-                <th class='th2' id="twos">Twos</th>
-                <td><input type='button' class='score' name='upperScoring' id='twosDisplay' value='0' onclick='recordTurn(1)'></td>
-                <th class='th2' id="quad">4 of a kind</th>
-                <td><input type='button' class='score' name='lowerScoring' id='quadDisplay' value='0' onclick='recordTurn(7)'></td>
-            </tr>
-            <tr>
-                <th class='th2' id="threes">Threes</th>
-                <td><input type='button' class='score' name='upperScoring' id='threesDisplay' value='0' onclick='recordTurn(2)'></td>
-                <th class='th2' id="fullhouse">Full house</th>
-                <td><input type='button' class='score' name='lowerScoring' id='fullhouseDisplay' value='0' onclick='recordTurn(8)'></td>
-            </tr>
-            <tr>
-                <th class='th2' id="fours">Fours</th>
-                <td><input type='button' class='score' name='upperScoring' id='foursDisplay' value='0' onclick='recordTurn(3)'></td>
-                <th class='th2' id="smallStraight">Small straight</th>
-                <td><input type='button' class='score' name='lowerScoring' id='ssDisplay' value='0' onclick='recordTurn(9)'></td>
-            </tr>
-            <tr>
-                <th class='th2' id="fives">Fives</th>
-                <td><input type='button' class='score' name='upperScoring' id='fivesDisplay' value='0' onclick='recordTurn(4)'></td>
-                <th class='th2' id="largeStraight">Large straight</th>
-                <td><input type='button' class='score' name='lowerScoring' id='lsDisplay' value='0' onclick='recordTurn(10)'></td>
-            </tr>
-            <tr>
-                <th class='th2' id="sixes">Sixes</th>
-                <td><input type='button' class='score' name='upperScoring' id='sixesDisplay' value='0' onclick='recordTurn(5)'></td>
-                <th class='th2' id="yahtzee">YAHTZEE</th>
-                <td><input type='button' class='score' name='lowerScoring' id='yahtzeeDisplay' value='0' onclick='recordTurn(11)'></td>
-            </tr>
-            <tr>
-                <th class='th2' id="upperTotal" style="background-color: peru">Total (Upper Section)</th>
-                <td style="background-color: peru">
-                    <div align='center' name='scoreDisplay' id='upperTotalDisplay'></div>
-                </td>
-                <th class='th2' id="chance">Chance</th>
-                <td><input type='button' class='score' name='lowerScoring' id='chanceDisplay' value='0' onclick='recordTurn(12)'></td>
-            </tr>
-            <tr>
-                <th class='th2' id="bonus" style="background-color: #e2a85c">Bonus</th>
-                <td style="background-color: #e2a85c;">
-                    <div align='center' name='scoreDisplay' id='bonusDisplay'></div>
-                </td>
-                <th class='th2' id="lowerTotal" style="background-color: peru">Total(Lower Section)</th>
-                <td style="background-color: peru">
-                    <div align='center' name='scoreDisplay' id='lowerTotalDisplay'></div>
-                </td>
-            </tr>
-            <tr>
-                <th class="th2" colspan="2" style="background-color: rgb(243, 215, 162);">Total</th>
-                <th class="th2" colspan="2" style="background-color: rgb(243, 215, 162);">
-                    <div name='scoreDisplay' id='totalDisplay'></div>
-                </th>
-            </tr>
-        </table>
+      <h1>YAHTZEE</h1>
+      <table id="score-sheet">
+        <tr>
+          <th class="th1" colspan="4">SCORE SHEET</th>
+        </tr>
+        <tr>
+          <th class="th2" id="aces">Aces</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="upperScoring"
+              id="acesDisplay"
+              value="0"
+              onclick="recordTurn(0)"
+            />
+          </td>
+          <th class="th2" id="triple">3 of a kind</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="lowerScoring"
+              id="tripleDisplay"
+              value="0"
+              onclick="recordTurn(6)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="th2" id="twos">Twos</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="upperScoring"
+              id="twosDisplay"
+              value="0"
+              onclick="recordTurn(1)"
+            />
+          </td>
+          <th class="th2" id="quad">4 of a kind</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="lowerScoring"
+              id="quadDisplay"
+              value="0"
+              onclick="recordTurn(7)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="th2" id="threes">Threes</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="upperScoring"
+              id="threesDisplay"
+              value="0"
+              onclick="recordTurn(2)"
+            />
+          </td>
+          <th class="th2" id="fullhouse">Full house</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="lowerScoring"
+              id="fullhouseDisplay"
+              value="0"
+              onclick="recordTurn(8)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="th2" id="fours">Fours</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="upperScoring"
+              id="foursDisplay"
+              value="0"
+              onclick="recordTurn(3)"
+            />
+          </td>
+          <th class="th2" id="smallStraight">Small straight</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="lowerScoring"
+              id="ssDisplay"
+              value="0"
+              onclick="recordTurn(9)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="th2" id="fives">Fives</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="upperScoring"
+              id="fivesDisplay"
+              value="0"
+              onclick="recordTurn(4)"
+            />
+          </td>
+          <th class="th2" id="largeStraight">Large straight</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="lowerScoring"
+              id="lsDisplay"
+              value="0"
+              onclick="recordTurn(10)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="th2" id="sixes">Sixes</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="upperScoring"
+              id="sixesDisplay"
+              value="0"
+              onclick="recordTurn(5)"
+            />
+          </td>
+          <th class="th2" id="yahtzee">YAHTZEE</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="lowerScoring"
+              id="yahtzeeDisplay"
+              value="0"
+              onclick="recordTurn(11)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="th2" id="upperTotal" style="background-color: peru">
+            Total (Upper Section)
+          </th>
+          <td style="background-color: peru">
+            <div
+              align="center"
+              name="scoreDisplay"
+              id="upperTotalDisplay"
+            ></div>
+          </td>
+          <th class="th2" id="chance">Chance</th>
+          <td>
+            <input
+              type="button"
+              class="score"
+              name="lowerScoring"
+              id="chanceDisplay"
+              value="0"
+              onclick="recordTurn(12)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th class="th2" id="bonus" style="background-color: #e2a85c">
+            Bonus
+          </th>
+          <td style="background-color: #e2a85c">
+            <div align="center" name="scoreDisplay" id="bonusDisplay"></div>
+          </td>
+          <th class="th2" id="lowerTotal" style="background-color: peru">
+            Total(Lower Section)
+          </th>
+          <td style="background-color: peru">
+            <div
+              align="center"
+              name="scoreDisplay"
+              id="lowerTotalDisplay"
+            ></div>
+          </td>
+        </tr>
+        <tr>
+          <th
+            class="th2"
+            colspan="2"
+            style="background-color: rgb(243, 215, 162)"
+          >
+            Total
+          </th>
+          <th
+            class="th2"
+            colspan="2"
+            style="background-color: rgb(243, 215, 162)"
+          >
+            <div name="scoreDisplay" id="totalDisplay"></div>
+          </th>
+        </tr>
+      </table>
 
+      <table id="area-dice">
+        <div id="countRound"></div>
+        <tr>
+          <td style="color: rgb(243, 215, 162); font: size 40px">POOL</td>
+          <td>
+            <image
+              name="dicePool"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="lockDie(1)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="dicePool"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="lockDie(2)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="dicePool"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="lockDie(3)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="dicePool"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="lockDie(4)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="dicePool"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="lockDie(5)"
+            ></image>
+          </td>
+        </tr>
+        <tr>
+          <td style="color: rgb(243, 215, 162); font: size 40px">KEEPER</td>
+          <td>
+            <image
+              name="diceScore"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="unlockDie(1)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="diceScore"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="unlockDie(2)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="diceScore"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="unlockDie(3)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="diceScore"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="unlockDie(4)"
+            ></image>
+          </td>
+          <td>
+            <image
+              name="diceScore"
+              class="button-dice"
+              src="pics/dice0.png"
+              onclick="unlockDie(5)"
+            ></image>
+          </td>
+        </tr>
+      </table>
+      <div class="btn">
+        <button class="button" id="roll" onclick="roll()">
+          <div
+            id="countNum"
+            style="color: black; margin-top: 0; font-size: 15px"
+          ></div>
+        </button>
 
-        <table id="area-dice">
-            <div id='countRound'></div>
-            <tr>
-                <td style='color: rgb(243, 215, 162); font: size 40px;'>POOL</td>
-                <td>
-                    <image name='dicePool' class='button-dice' src='pics/dice0.png' onclick='lockDie(1)'></image>
-                </td>
-                <td>
-                    <image name='dicePool' class='button-dice' src='pics/dice0.png' onclick='lockDie(2)'></image>
-                </td>
-                <td>
-                    <image name='dicePool' class='button-dice' src='pics/dice0.png' onclick='lockDie(3)'></image>
-                </td>
-                <td>
-                    <image name='dicePool' class='button-dice' src='pics/dice0.png' onclick='lockDie(4)'></image>
-                </td>
-                <td>
-                    <image name='dicePool' class='button-dice' src='pics/dice0.png' onclick='lockDie(5)'></image>
-                </td>
-
-            </tr>
-            <tr>
-                <td style='color: rgb(243, 215, 162); font: size 40px;'>KEEPER</td>
-                <td>
-                    <image name='diceScore' class='button-dice' src='pics/dice0.png' onclick='unlockDie(1)'></image>
-                </td>
-                <td>
-                    <image name='diceScore' class='button-dice' src='pics/dice0.png' onclick='unlockDie(2)'></image>
-                </td>
-                <td>
-                    <image name='diceScore' class='button-dice' src='pics/dice0.png' onclick='unlockDie(3)'></image>
-                </td>
-                <td>
-                    <image name='diceScore' class='button-dice' src='pics/dice0.png' onclick='unlockDie(4)'></image>
-                </td>
-                <td>
-                    <image name='diceScore' class='button-dice' src='pics/dice0.png' onclick='unlockDie(5)'></image>
-                </td>
-            </tr>
-        </table>
-        <div class="btn">
-            <button class='button' id="roll" onclick='roll()'><div id='countNum' style='color: black; margin-top:0; font-size: 15px;'></div></button>
-
-            <button class='button' id='btnRestart' onclick='newGame()' hidden>New Game</button>
-        </div>
-
+        <button class="button" id="btnRestart" onclick="newGame()" hidden>
+          New Game
+        </button>
+      </div>
     </center>
 
     <!-- How to Play -->
     <div id="popup1" class="overlay">
-        <div class="popup">
-            <h2>How To Play</h2>
-            <a class="close" href="#">×</a>
-            <div class='content'>
-                13 Rounds played. In each round, 3 rolls are permitted. For each roll, roll dice in 'POOL' space. Player can keep some (or all) of the dice in 'KEEPER' space, by clicking at the specific 'POOL' dice you want to keep. Player can also return the dice from
-                'KEEPER' back to 'POOL' by clicking at the specific 'POOL' dice you want to return. If result is satisfying (or has rolled 3 times already), select ,by clicking, one of scoring type, either one at upper section (the left section of score
-                sheet) or another at lower section (the right of score sheet). The chosen scoring type is not available for the rest of the game.
-                <br><br>
-                <h3> Scoring Type </h3>
-                <table id="htp">
-                    <tr>
-                        <td>Aces</td>
-                        <td>1 point per die with pip value '1'.</td>
-                    </tr>
-                    <tr>
-                        <td>Twos</td>
-                        <td>2 points per die with pip value '2'.</td>
-                    </tr>
-                    <tr>
-                        <td>Threes</td>
-                        <td>3 points per die with pip value '3'.</td>
-                    </tr>
-                    <tr>
-                        <td>Fours</td>
-                        <td>4 points per die with pip value '4'.</td>
-                    </tr>
-                    <tr>
-                        <td>Fives</td>
-                        <td>5 points per die with pip value '5'.</td>
-                    </tr>
-                    <tr>
-                        <td>Sixes</td>
-                        <td>6 points per die with pip value '6'.</td>
-                    </tr>
-                    <tr>
-                        <td>3 of a kind</td>
-                        <td>3 dice of the same pip value. Sum all value of the dice.</td>
-                    </tr>
-                    <tr>
-                        <td>4 of a kind</td>
-                        <td>4 dice of the same pip value. Sum all value of the dice.</td>
-                    </tr>
-                    <tr>
-                        <td>Full house</td>
-                        <td>3 dice of the same pip value and 2 dice of the same pip value(can be the same or different from one which forms three of a kind). Get 25 points. (e.g., 2,2,3,3,3)</td>
-                    </tr>
-                    <tr>
-                        <td>Small straight</td>
-                        <td>4 dice with consecutive pip value. Get 30 points. (e.g., 1,2,3,4,6)</td>
-                    </tr>
-                    <tr>
-                        <td>Large straight</td>
-                        <td>5 dice with consecutive pip value. Get 40 points. (e.g., 2,3,4,5,6)</td>
-                    </tr>
-                    <tr>
-                        <td>Yahtzee</td>
-                        <td>5 dice with the same pip value. Get 50 points</td>
-                    </tr>
-                    <tr>
-                        <td>Chance</td>
-                        <td>Sum all pip value of the dice.</td>
-                    </tr>
-
-                </table>
-                <br>
-                <h3>End of Game</h3>
-                At the end of the game (i.e., after 13 rounds), sum score both upper section and lower one. Also, Bonus score at the upper section is determined. If sum of score at the upper section exceeds 63 points, get 35 bonus point. If not, get nothing.
-                <br>
-            </div>
+      <div class="popup">
+        <h2>How To Play</h2>
+        <a class="close" href="#">×</a>
+        <div class="content">
+          13 Rounds played. In each round, 3 rolls are permitted. For each roll,
+          roll dice in 'POOL' space. Player can keep some (or all) of the dice
+          in 'KEEPER' space, by clicking at the specific 'POOL' dice you want to
+          keep. Player can also return the dice from 'KEEPER' back to 'POOL' by
+          clicking at the specific 'POOL' dice you want to return. If result is
+          satisfying (or has rolled 3 times already), select ,by clicking, one
+          of scoring type, either one at upper section (the left section of
+          score sheet) or another at lower section (the right of score sheet).
+          The chosen scoring type is not available for the rest of the game.
+          <br /><br />
+          <h3>Scoring Type</h3>
+          <table id="htp">
+            <tr>
+              <td>Aces</td>
+              <td>1 point per die with pip value '1'.</td>
+            </tr>
+            <tr>
+              <td>Twos</td>
+              <td>2 points per die with pip value '2'.</td>
+            </tr>
+            <tr>
+              <td>Threes</td>
+              <td>3 points per die with pip value '3'.</td>
+            </tr>
+            <tr>
+              <td>Fours</td>
+              <td>4 points per die with pip value '4'.</td>
+            </tr>
+            <tr>
+              <td>Fives</td>
+              <td>5 points per die with pip value '5'.</td>
+            </tr>
+            <tr>
+              <td>Sixes</td>
+              <td>6 points per die with pip value '6'.</td>
+            </tr>
+            <tr>
+              <td>3 of a kind</td>
+              <td>3 dice of the same pip value. Sum all value of the dice.</td>
+            </tr>
+            <tr>
+              <td>4 of a kind</td>
+              <td>4 dice of the same pip value. Sum all value of the dice.</td>
+            </tr>
+            <tr>
+              <td>Full house</td>
+              <td>
+                3 dice of the same pip value and 2 dice of the same pip
+                value(can be the same or different from one which forms three of
+                a kind). Get 25 points. (e.g., 2,2,3,3,3)
+              </td>
+            </tr>
+            <tr>
+              <td>Small straight</td>
+              <td>
+                4 dice with consecutive pip value. Get 30 points. (e.g.,
+                1,2,3,4,6)
+              </td>
+            </tr>
+            <tr>
+              <td>Large straight</td>
+              <td>
+                5 dice with consecutive pip value. Get 40 points. (e.g.,
+                2,3,4,5,6)
+              </td>
+            </tr>
+            <tr>
+              <td>Yahtzee</td>
+              <td>5 dice with the same pip value. Get 50 points</td>
+            </tr>
+            <tr>
+              <td>Chance</td>
+              <td>Sum all pip value of the dice.</td>
+            </tr>
+          </table>
+          <br />
+          <h3>End of Game</h3>
+          At the end of the game (i.e., after 13 rounds), sum score both upper
+          section and lower one. Also, Bonus score at the upper section is
+          determined. If sum of score at the upper section exceeds 63 points,
+          get 35 bonus point. If not, get nothing.
+          <br />
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

@@ -1,109 +1,118 @@
 body {
-    background-color: rgb(29, 12, 1);
+  background-color: rgb(42, 42, 42);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    color: rgb(255, 220, 155);
-    text-align: center;
-    font-size: 50px;
-    padding: 20px;
-    margin-bottom: -20px;
+  color:#e1ae07;
+  z-index: 999;
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  width: 250px;
+  text-align: center;
+  
+  font-size: 50px;
+  padding: 15px 25px 15px 25px;
+  margin: 10px;
+  border-radius: 35px;
+  
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+  /* overflow: hidden; */
 }
-
 
 /*---------------------------------------- Score sheet ----------------------------------------*/
 
 #score-sheet {
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: sienna;
-    float: left;
-    padding: 20px;
-    margin: 30px;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.7);
+  background-color: rgb(22, 21, 21);
+  /* float: left; */
+  padding: 20px;
+  /* margin: 30px; */
+  margin-top: -20px;
 }
 
 #score-sheet .th1 {
-    font-size: 30px;
-    color: wheat;
-    padding-top: 10px;
-    padding-bottom: 20px;
+  font-size: 30px;
+  color: #e1ae07;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 #score-sheet .th2 {
-    border: 1px solid black;
-    width: 200px;
-    background-color: rgb(201, 139, 86);
-    font-size: 19px;
-    padding: 15px;
+  border: 1px solid black;
+  width: 200px;
+  background-color: rgb(201, 139, 86);
+  font-size: 19px;
+  padding: 15px;
 }
 
 #score-sheet td {
-    border: 1px solid black;
-    padding: -20px;
+  border: 1px solid black;
+  padding: -20px;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
+
 }
 
 .score {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(243, 215, 162);
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: goldenrod;
+  cursor: pointer;
 }
-
-
 /*---------------------------------------- Area dice ----------------------------------------*/
 
 #countRound {
-    color: rgb(243, 215, 162);
-    font-size: 18px;
-    float: left;
-    margin-top: 30px;
-    margin-left: 30px;
+  color: goldenrod;
+  font-size: 18px;
+  /* float: left; */
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
 #area-dice {
-    background-color: rgb(59, 25, 0);
-    border: 1px dashed cornsilk;
-    border-radius: 5px;
-    float: left;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-bottom: 30px;
-    padding: 10px;
+  background-color: rgb(59, 25, 0);
+  border: 1px dashed cornsilk;
+  border-radius: 5px;
+  /* float: left; */
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 #area-dice td {
-    padding: 25px;
+  padding: 25px;
 }
 
 .button-dice {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    margin: -10px;
-    cursor: pointer;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  margin: -10px;
+  cursor: pointer;
 }
 
 .btn {
-    float: left;
-    width: 800px;
-    margin-left: 10px;
+  /* float: left; */
+  width: 800px;
+  margin-left: 10px;
 }
 
 .button {
-    background-color: rgb(255, 214, 138);
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 18px;
+  background-color: rgb(255, 214, 138);
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 18px;
 }
-
 
 /*---------------------------------------- Scrollbar ----------------------------------------*/
 
 ::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
