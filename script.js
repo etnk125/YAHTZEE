@@ -56,115 +56,61 @@ function unlockDie(pos) {
 class Score {
   constructor(dice) {
     this.dice = [...dice]; //clone
+    this.sum = this.dice.reduce((acc, val) => acc + val, 0);
+    this.a = [0, 0, 0, 0, 0, 0];
+    dice.forEach((e) => this.a[e - 1]++);
   }
 
   //upper section
   aces() {
-    var scoreAces = 0;
-    for (let x of this.dice) {
-      if (x == 1) scoreAces += 1;
-    }
-    return scoreAces;
+    return this.a[0];
   }
   twos() {
-    var scoreTwos = 0;
-    for (let x of this.dice) {
-      if (x == 2) scoreTwos += 2;
-    }
-    return scoreTwos;
+    return this.a[1] * 2;
   }
   threes() {
-    var scoreThrees = 0;
-    for (let x of this.dice) {
-      if (x == 3) scoreThrees += 3;
-    }
-    return scoreThrees;
+    return this.a[2] * 3;
   }
   fours() {
-    var scoreFours = 0;
-    for (let x of this.dice) {
-      if (x == 4) scoreFours += 4;
-    }
-    return scoreFours;
+    return this.a[3] * 4;
   }
   fives() {
-    var scoreFives = 0;
-    for (let x of this.dice) {
-      if (x == 5) scoreFives += 5;
-    }
-    return scoreFives;
+    return this.a[4] * 5;
   }
   sixes() {
-    var scoreSixes = 0;
-    for (let x of this.dice) {
-      if (x == 6) scoreSixes += 6;
-    }
-    return scoreSixes;
+    return this.a[5] * 6;
   }
 
   //lower section
   triple() {
-    //[1,1,1,2,3] [1,3,3,3,6] [1,4,5,5,5] **[3,4,4,5,5]**
-    var d = this.dice.sort((a, b) => a - b).join("");
-    return d.includes("111") ||
-      d.includes("222") ||
-      d.includes("333") ||
-      d.includes("444") ||
-      d.includes("555") ||
-      d.includes("666")
-      ? this.dice.reduce((acc, val) => acc + val, 0)
-      : 0;
+    return this.a.filter((e) => e >= 3).length > 0 ? this.sum : 0;
   }
   quad() {
-    //[4,4,6,4,4] => [4,4,4,4,6] , [6,1,1,1,1] => [1,6,6,6,6] [1,2,3,4,5]
-    var d = this.dice.sort((a, b) => a - b).join("");
-    return d.includes("1111") ||
-      d.includes("2222") ||
-      d.includes("3333") ||
-      d.includes("4444") ||
-      d.includes("5555") ||
-      d.includes("6666")
-      ? this.dice.reduce((acc, val) => acc + val, 0)
-      : 0;
+    return this.a.filter((e) => e >= 4).length > 0 ? this.sum : 0;
   }
   fullhouse() {
-    //[1,1,1,2,2] [1,1,2,2,2]
-    var d = this.dice.sort((a, b) => a - b);
-    return d[0] == d[1] &&
-      d[3] == d[4] &&
-      (d[2] == d[1] || d[2] == d[3]) &&
-      d[1] != d[3]
-      ? 25
+    return this.a.filter((e) => e >= 3).length > 0 &&
+      this.a.filter((e) => e >= 2).length > 1
+      ? this.sum
       : 0;
   }
   smallStraight() {
-    //[1,1,2,3,4] [2,3,4,5,6] rare-case:[1,2,(3,4),5,6], ----[2,3,4,4,5] [2,3,3,4,5] [2,3,3,4,4]----
-    /*
-            var s = 0,
-                d = this.dice.sort((a, b) => a - b).join('');
-            return (d.includes('1234') || d.includes('2345') || d.includes('3456')) ? 30 : 0;
-            */
     var count = 0,
-      d = this.dice.sort((a, b) => a - b);
-    d.forEach(function (e, i) {
-      if (i < 5)
-        if (e == d[i + 1] - 1) count++;
-        else if (e != d[i + 1]) return 0;
-    });
-    return count >= 3 ? 30 : 0;
+      temp = this.a.forEach((e) => {
+        if (count == 4) return;
+        count += e == 0 ? -count : 1;
+      });
+    return count >= 4 ? 30 : 0;
   }
   largeStraight() {
     var d = this.dice.sort((a, b) => a - b).join("");
     return d == "12345" || d == "23456" ? 40 : 0;
   }
   yahtzee() {
-    //[3,3,3,3,3]
-    return this.dice.reduce((acc, val) => acc + val, 0) * 0.2 == this.dice[0]
-      ? 50
-      : 0;
+    return this.sum / 5 == this.dice[0] ? 50 : 0;
   }
   chance() {
-    return this.dice.reduce((acc, val) => acc + val, 0);
+    return this.sum;
   }
 
   possibleScore() {
