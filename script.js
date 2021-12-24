@@ -221,33 +221,22 @@ function roll() {
 function displayScore() {
   var pool = new Score(turnDice.concat(diceRecord).filter((elem) => elem != 0));
 
-  //if(pool.dice.reduce((acc,val)=>acc+val,0)*0.2 == pool.dice[0]) isYahtzee+=1;
-
   var upperDisplay = document.getElementsByName("upperScoring"),
     lowerDisplay = document.getElementsByName("lowerScoring");
   var scoring = Array.from(upperDisplay).concat(Array.from(lowerDisplay));
 
+  var possibleScore = pool.possibleScore();//store it to get better runtime
+
   for (let i = 0; i < scoring.length; i++) {
-    if (i < 6) {
-      if (scoring[i].disabled) {
-        for (let j = 0; j < gameRecord.length; j++) {
-          if (gameRecord[j][1] == scoringType[i]) {
-            upperDisplay[i].setAttribute("value", gameRecord[j][2]);
-          }
+    var display = i < 6 ? upperDisplay[i] : lowerDisplay[i - 6];
+    if (scoring[i].disabled) {
+      for (let j = 0; j < gameRecord.length; j++) {
+        if (gameRecord[j][1] == scoringType[i]) {
+          display.setAttribute("value", gameRecord[j][2]);
         }
-      } else {
-        upperDisplay[i].setAttribute("value", pool.possibleScore()[i]);
       }
     } else {
-      if (scoring[i].disabled) {
-        for (let j = 0; j < gameRecord.length; j++) {
-          if (gameRecord[j][1] == scoringType[i]) {
-            lowerDisplay[i - 6].setAttribute("value", gameRecord[j][2]);
-          }
-        }
-      } else {
-        lowerDisplay[i - 6].setAttribute("value", pool.possibleScore()[i]);
-      }
+      display.setAttribute("value", possibleScore[i]);
     }
   }
 }
