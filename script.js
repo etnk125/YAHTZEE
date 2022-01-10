@@ -225,7 +225,7 @@ function displayScore() {
     lowerDisplay = document.getElementsByName("lowerScoring");
   var scoring = Array.from(upperDisplay).concat(Array.from(lowerDisplay));
 
-  var possibleScore = pool.possibleScore();//store it to get better runtime
+  var possibleScore = pool.possibleScore(); //store it to get better runtime
 
   for (let i = 0; i < scoring.length; i++) {
     var display = i < 6 ? upperDisplay[i] : lowerDisplay[i - 6];

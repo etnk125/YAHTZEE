@@ -1,11 +1,11 @@
 a:link,
 a:visited {
-    color: wheat;
+    color: white;
     text-decoration: none;
 }
 
 a:hover {
-    color: rgb(201, 139, 86);
+    color: wheat;
     text-decoration: underline;
 }
 
@@ -13,14 +13,14 @@ a:active {
     color: pink;
     text-decoration: underline;
 }
-
 .box {
+    z-index: 9999;
     margin: 20px;
     background-clip: padding-box;
     /* ระยะของ bg */
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 20px;
+    right: 20px;
 }
 
 .overlay {
@@ -47,6 +47,7 @@ a:active {
 
 .popup {
     /* ตกแต่งตัว popup */
+    z-index: 99999;
     margin: 70px auto;
     padding: 30px;
     background: rgb(41, 18, 0);
