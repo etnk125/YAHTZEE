@@ -4,34 +4,34 @@ body {
 }
 
 h1 {
-  color:rgb(228, 228, 228);
+  color: rgb(228, 228, 228);
   z-index: 999;
   background-color: rgb(211, 109, 0);
   text-align: center;
-  
+
   font-size: 50px;
   padding: 15px 25px;
-  margin: 10px ;
+  margin: 10px;
   border-radius: 35px;
-  
+
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
   /* overflow: hidden; */
   display: block;
-  position:relative;
+  position: relative;
 }
 
 /*---------------------------------------- Score sheet ----------------------------------------*/
 
 #score-sheet {
+  /* display: inline; */
   /* border: 1px solid black; */
   border-radius: 30px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.7);
   background-color: rgb(22, 21, 21);
-  float: left;
+  /* float: left; */
   padding: 20px;
   /* margin: 30px; */
   margin: -20px 30px 0px 10px;
-  display: relative;
 }
 
 #score-sheet .th1 {
@@ -68,14 +68,17 @@ button {
   /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 16px;
 }
-.score:disabled{
+
+.score:disabled {
   background-color: rgb(27, 27, 27);
   color: #7b703e;
   cursor: unset;
 }
+
 /*---------------------------------------- Area dice ----------------------------------------*/
 
 #countRound {
+  display: inline;
   color: goldenrod;
   font-size: 18px;
   /* float: left; */
@@ -84,6 +87,9 @@ button {
 }
 
 #area-dice {
+  display: flex;
+  flex-direction: row;
+  max-width: 600px;
   background-color: rgb(59, 25, 0);
   border: 1px dashed cornsilk;
   border-radius: 5px;
@@ -94,23 +100,20 @@ button {
   padding: 10px;
 }
 
+
 #area-dice td {
-  padding: 25px;
+  padding: 25px 15px;
 }
 
 .button-dice {
-  width: 100px;
-  height: 100px;
+  max-width: 80px;
+  max-height: 80px;
   border-radius: 5px;
   margin: -10px;
   cursor: pointer;
 }
 
-.btn {
-  /* float: left; */
-  width: 800px;
-  margin-left: 10px;
-}
+
 
 .button {
   background-color: rgb(255, 214, 138);
@@ -118,7 +121,7 @@ button {
   height: 50px;
   border-radius: 5px;
   font-size: 18px;
-  
+
 }
 
 /*---------------------------------------- Scrollbar ----------------------------------------*/
